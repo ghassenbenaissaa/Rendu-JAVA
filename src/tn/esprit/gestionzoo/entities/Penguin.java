@@ -1,6 +1,6 @@
 package tn.esprit.gestionzoo.entities;
 
-public class Penguin extends Aquatic{
+public final class Penguin extends Aquatic{
     private float swimmingDepth;
 
     public float getSwimmingDepth() {
@@ -17,5 +17,10 @@ public class Penguin extends Aquatic{
     }
     public String toString() {
         return super.toString() +"SwimmingDepth :"+this.swimmingDepth;
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("This Penguin is swimming.");
     }
 }

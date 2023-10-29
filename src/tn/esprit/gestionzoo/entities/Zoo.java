@@ -1,11 +1,14 @@
 package tn.esprit.gestionzoo.entities;
+
+import tn.esprit.gestionzoo.exception.ZooFullException;
+
 public class Zoo {
 
     private final Animal [] animals;
     private final Aquatic [] aquaticAnimals=new Aquatic[10];
     private String name;
     private String city;
-    private final int NBR_CAGES= 25;
+    private final int NBR_CAGES= 2;
     static int nbrTotalAnimals= 0;
     private int nbrAnimals;
     private int nbrAnimalsAq= 0;
@@ -57,16 +60,17 @@ public class Zoo {
         aquaticAnimals[ nbrAnimalsAq]= aquatic;
         nbrAnimalsAq++;
     }
-    public boolean addAnimal(Animal animal){
-        if (searchAnimal(animal) != -1){
-            return false;
-        }
-        if( !isZooFull() ){
-            animals[nbrAnimals]= animal;
+    public void addAnimal(Animal animal) throws ZooFullException{
+        //if (searchAnimal(animal) != -1)
+           // return false;
+        if( !isZooFull() ) {
+            animals[nbrAnimals] = animal;
             nbrAnimals++;
             nbrTotalAnimals++;
-            return true;
-        }else return false;
+        } else{
+            throw new ZooFullException("Zoo full");
+        }
+        //return false;
     }
 
     public void displayAnimals(){

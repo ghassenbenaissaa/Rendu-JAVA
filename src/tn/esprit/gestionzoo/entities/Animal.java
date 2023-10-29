@@ -1,4 +1,8 @@
 package tn.esprit.gestionzoo.entities;
+
+import tn.esprit.gestionzoo.exception.InvalidAgeException;
+import tn.esprit.gestionzoo.exception.ZooFullException;
+
 public sealed class Animal permits Aquatic, Terrestrial{
 
 
@@ -18,11 +22,12 @@ public sealed class Animal permits Aquatic, Terrestrial{
         }
     }
     public int getAge() {return age;}
-    public void setAge(int age) {
-        if (age < 0)
-            System.out.println("l'age ne peut pas étre negative");
-        else {
+    public void setAge(int age) throws InvalidAgeException {
+        if (age > 0)
             this.age = age;
+            //System.out.println("l'age ne peut pas étre negative");
+        else {
+            throw new InvalidAgeException("l'age ne peut pas étre negative");
         }
     }
     public String getFamily() {return family;}

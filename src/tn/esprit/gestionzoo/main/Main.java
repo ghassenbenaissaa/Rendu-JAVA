@@ -53,6 +53,7 @@ public class Main {
         Terrestrial terrestrial = new Terrestrial("Panda", "Narla", 4, true, 2);
         Dolphin dolphin = new Dolphin("Delphinidae", "Flipper", 5, true, "Ocean", 14.5f);
         Dolphin dolphin1 = new Dolphin("familleDauphin", "Dauphin2", 8, true, "Océan", 14.5f);
+        //Dolphin dolphin2 = new Dolphin("familleDauphin", "Dauphin2", 8, true, "Océan", 14.5f);
         Dolphin dolphin2 = new Dolphin("familleDauphin", "Dauphin3", 12, true, "Océan", 16.0f);
         Penguin penguin = new Penguin("Spheniscidae", "Skipper", 3, true, "Ocean", 25.3f);
 

@@ -28,17 +28,12 @@ public sealed abstract class Aquatic extends Animal permits Dolphin, Penguin{
 
     public abstract void swim();
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true; // Si c'est la même instance, elles sont égales
+        if (obj == null) return false; // Si c'est la même instance, elles sont égales
+        if (obj == this) return true; // Si obj est nul ou n'est pas une instance d'Aquatic, elles ne sont pas égales
+        if (obj instanceof Aquatic aquatic) {
+            // Comparaison des propriétés : nom, âge et habitat
+            return aquatic.habitat.equals(habitat) && aquatic.getName().equals(super.getName()) && aquatic.getAge() == super.getAge();
         }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false; // Si obj est nul ou n'est pas une instance d'Aquatic, elles ne sont pas égales
-        }
-        Aquatic other = (Aquatic) obj; // Cast de l'objet à comparer en Aquatic
-
-        // Comparaison des propriétés : nom, âge et habitat
-        return Objects.equals(name, other.name) &&
-                age == other.age &&
-                Objects.equals(habitat, other.habitat);
+        return false;
     }
 }

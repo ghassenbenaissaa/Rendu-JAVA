@@ -2,6 +2,7 @@ package tn.esprit.gestionzoo.main;
 import tn.esprit.gestionzoo.entities.*;
 import tn.esprit.gestionzoo.exception.InvalidAgeException;
 import tn.esprit.gestionzoo.exception.ZooFullException;
+import tn.esprit.gestionzoo.entities.enums.Food;
 
 public class Main {
     public static void main(String[] args){
@@ -59,8 +60,14 @@ public class Main {
 
         //System.out.println(aquatic);
         System.out.println(terrestrial);
+        terrestrial.eatPlant(Food.PLANT);
+        terrestrial.eatMeat(Food.MEAT);
+
         System.out.println(dolphin);
+        dolphin.eatMeat(Food.MEAT);
+
         System.out.println(penguin);
+        penguin.eatMeat(Food.MEAT);
 
 
         System.out.println("------------------------------------------------Prosit6");
@@ -83,5 +90,14 @@ public class Main {
         } else {
             System.out.println("Les dauphins ne sont pas identiques.");
         }
+
+        System.out.println("------------------------------------------------Prosit8");
+
+        penguin.eatMeat(Food.MEAT);
+        dolphin.eatMeat(Food.MEAT);
+        terrestrial.eatPlantAndMeet(Food.BOTH);
+
+        Terrestrial terrestrial2 = new Terrestrial("Rabbits", "Bugs bunny", 2, true, 4);
+        terrestrial2.eatPlant(Food.PLANT);
     }
 }

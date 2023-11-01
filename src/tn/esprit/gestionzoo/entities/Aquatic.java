@@ -1,7 +1,10 @@
 package tn.esprit.gestionzoo.entities;
+import tn.esprit.gestionzoo.Interfaces.Carnivore;
+import tn.esprit.gestionzoo.entities.enums.Food;
+
 import java.util.Objects;
 
-public sealed abstract class Aquatic extends Animal permits Dolphin, Penguin{
+public sealed abstract class Aquatic extends Animal implements Carnivore<Food> permits Dolphin, Penguin{
     private String habitat;
 
     public String getHabitat() {
